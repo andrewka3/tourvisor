@@ -10,7 +10,7 @@ use Tourvisor\Exceptions\ValidateParamException;
  *
  * @package Tourvisor\Requests
  * @property array $type - массив типов справочников, которые нужно получить (['departure', 'country', 'region',
- *     'subregion', 'meal', 'stars', 'hotel', 'operator', 'flydate'])
+ *     'subregion', 'meal', 'stars', 'hotel', 'operator', 'flydate', 'services'])
  * @property int $cndep - код города вылета (в случае, если в типах есть )
  * @property int $regcountry - код страны, по которой нужно получить список курортов
  * @property int $hotcountry - код страны, по которой нужно получить список отелей (обязательно, если
@@ -30,7 +30,7 @@ use Tourvisor\Exceptions\ValidateParamException;
  */
 class ListRequest extends AbstractRequest
 {
-    const TYPES = ['departure', 'country', 'region', 'subregion', 'meal', 'stars', 'hotel', 'operator', 'flydate'];
+    const TYPES = ['departure', 'country', 'region', 'subregion', 'meal', 'stars', 'hotel', 'operator', 'flydate', 'services'];
 
     protected $endPoint = 'list.php';
 

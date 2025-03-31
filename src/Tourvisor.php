@@ -93,6 +93,9 @@ class Tourvisor
                 if ($flydates = Arr::get($response, 'lists.flydates.flydate')) {
                     $res['flydates'] = collect($flydates);
                 }
+                if ($services = Arr::get($response, 'lists.services.service')) {
+                    $res['services'] = collect($services);
+                }
 
                 return $res;
             case $request instanceof ActualizeRequest:
