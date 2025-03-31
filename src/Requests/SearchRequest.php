@@ -40,6 +40,8 @@ namespace Tourvisor\Requests;
  * @property int $priceto - цена до (в рублях, опционально)
  * @property int $currency – валюта, в которой производить выдачу результатов поиска. 0 = рубли (по-умолчанию), 1
  *     – у.е. (USD или EUR, зависит от страны), 2 – бел.рубли, 3 – тенге
+ * @property bool $hideregular – 1 – показывать только чартерные рейсы. по умолчанию 0 (все)
+ * @property array $services - массив услуг (опционально)
  */
 class SearchRequest extends AbstractRequest
 {
@@ -51,6 +53,7 @@ class SearchRequest extends AbstractRequest
         'regions'    => 'array',
         'subregions' => 'array',
         'operators'  => 'array',
+        'services'   => 'array',
     ];
 
     protected $requiredParams = [
