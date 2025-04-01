@@ -13,6 +13,7 @@ use Tourvisor\Models\Region;
 use Tourvisor\Models\Review;
 use Tourvisor\Models\Star;
 use Tourvisor\Models\SubRegion;
+use Tourvisor\Models\Service;
 use Tourvisor\Models\Tour;
 use Tourvisor\Requests\AbstractRequest;
 use Tourvisor\Requests\ActualizeRequest;
@@ -94,7 +95,7 @@ class Tourvisor
                     $res['flydates'] = collect($flydates);
                 }
                 if ($services = Arr::get($response, 'lists.services.service')) {
-                    $res['services'] = collect($services);
+                    $res['services'] = collect(array_map([$this, 'transformServiceArray'], $services));
                 }
 
                 return $res;
@@ -181,6 +182,15 @@ class Tourvisor
     protected function transformSubRegionArray(array $subRegion)
     {
         return new SubRegion($subRegion);
+    }
+
+    /**
+     * @param array $service
+     * @return \Tourvisor\Models\Service
+     */
+    protected function transformServiceArray(array $service)
+    {
+        return new Service($service);
     }
 
     /**
