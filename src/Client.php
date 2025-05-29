@@ -28,7 +28,7 @@ class Client
         $this->authData['authlogin'] = $login;
         $this->authData['authpass'] = $password;
         $this->client = new \GuzzleHttp\Client([
-            'base_uri' => 'http://tourvisor.ru/xml/',
+            'base_uri' => 'https://tourvisor.ru/xml/',
         ]);
     }
 
